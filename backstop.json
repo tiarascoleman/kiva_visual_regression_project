@@ -1,0 +1,57 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Wikipedia Webpage",
+      "url": "https://www.wikipedia.org/",
+      "misMatchThreshold" : 0.15,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Wikipedia Webpage- Central Component",
+      "url": "https://www.wikipedia.org/",
+      "selectors": [".central-featured"],
+      "misMatchThreshold" : 0.15,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Wattpad Webpage",
+      "url": "https://www.wattpad.com/",
+      "misMatchThreshold" : 0.15,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "TeenVogue Webpage",
+      "url": "https://www.teenvogue.com/",
+      "selectors": [".standard-navigation__section--logo"],
+      "misMatchThreshold" : 0.15,
+      "requireSameDimensions": true
+    }
+
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
